@@ -10,33 +10,263 @@
   </head>
 
   <body>
+    <!-- Navbar -->
+
     <header class="navbar">
-      <div class="container">
+      <div class="nav-inner">
         <!-- Logo -->
         <div class="logo">
           <img src="/public/mangalam_logo.png" alt="Mangalam HDPE Pipes" />
         </div>
 
-        <!-- Menu -->
-        <nav class="nav-links">
-          <a href="#">About Us</a>
-
-          <div class="dropdown">
-            <button class="dropbtn">
-              Products
-              <span class="arrow">▼</span>
-            </button>
-            <div class="dropdown-content">
-              <a href="#">Product 1</a>
-              <a href="#">Product 2</a>
-              <a href="#">Product 3</a>
+        <!-- Desktop nav -->
+        <div style="display: flex; align-items: center">
+          <nav class="nav-links" id="desktopNav">
+            <div class="nav-item">
+              <a href="#" class="nav-link">About Us</a>
             </div>
-          </div>
 
-          <a href="#" class="contact-btn">Contact Us</a>
-        </nav>
+            <div class="nav-item" id="productsItem">
+              <button class="nav-link" onclick="toggleDropdown('productsItem')">
+                Products
+                <svg
+                  class="caret"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="dropdown" id="productsDropdown">
+                <a href="#">HDPE Pipes</a>
+                <a href="#">HDPE Coils</a>
+                <a href="#">Two For One Twister</a>
+                <a href="#">Fittings &amp; Accessories</a>
+              </div>
+            </div>
+          </nav>
+
+          <button class="btn-contact">Contact Us</button>
+        </div>
+
+        <!-- Hamburger -->
+        <button
+          class="hamburger"
+          id="hamburger"
+          onclick="toggleMobile()"
+          aria-label="Toggle menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#" class="mob-link">About Us</a>
+
+        <button
+          class="mob-link"
+          onclick="toggleMobDropdown()"
+          id="mobProductsBtn"
+        >
+          Products
+          <svg
+            class="caret"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="width: 16px; height: 16px"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        <div class="mob-dropdown" id="mobProductsDropdown">
+          <a href="#">HDPE Pipes</a>
+          <a href="#">HDPE Coils</a>
+          <a href="#">Two For One Twister</a>
+          <a href="#">Fittings &amp; Accessories</a>
+        </div>
+
+        <button class="mob-contact">Contact Us</button>
       </div>
     </header>
+    <!-- Hero Section -->
+    <section class="hero">
+      <!-- LEFT: Images -->
+      <div class="image-col">
+        <div class="main-image-wrap">
+          <img
+            id="mainImg"
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+            alt="HDPE Pipes installation"
+          />
+          <button
+            class="arrow arrow-left"
+            onclick="prevImg()"
+            aria-label="Previous image"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button
+            class="arrow arrow-right"
+            onclick="nextImg()"
+            aria-label="Next image"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="thumbnails">
+          <div class="thumb active" onclick="setImg(0, this)">
+            <img
+              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=200&q=60"
+              alt="thumb1"
+            />
+          </div>
+          <div class="thumb" onclick="setImg(1, this)">
+            <img
+              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&q=60"
+              alt="thumb2"
+            />
+          </div>
+          <div class="thumb" onclick="setImg(2, this)">
+            <img
+              src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=200&q=60"
+              alt="thumb3"
+            />
+          </div>
+          <div class="thumb" onclick="setImg(3, this)">
+            <img
+              src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=200&q=60"
+              alt="thumb4"
+            />
+          </div>
+          <div class="thumb" onclick="setImg(4, this)">
+            <img
+              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=200&q=50"
+              alt="thumb5"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Info -->
+      <div class="info-col">
+        <!-- Certification Badges -->
+        <div class="badges">
+          <div class="badge badge-bis">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 2L3 7l9 5 9-5-9-5z" />
+              <path d="M3 17l9 5 9-5" />
+              <path d="M3 12l9 5 9-5" />
+            </svg>
+            BIS Certified
+          </div>
+          <div class="badge badge-iso">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            ISO Certified
+          </div>
+          <div class="badge badge-ce">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            CE Certified
+          </div>
+        </div>
+
+        <!-- Title -->
+        <h1 class="product-title">
+          Premium HDPE Pipes &amp; Coils for Modern Infrastructure
+        </h1>
+
+        <!-- Features -->
+        <ul class="features">
+          <li>Leak-Proof Fusion Joints</li>
+          <li>Chemical Resistance</li>
+          <li>50+ Year Service Life</li>
+          <li>Flexible Installation</li>
+          <li>Flexible Installation</li>
+        </ul>
+
+        <!-- Price Box -->
+        <div class="price-box">
+          <div class="price-label">Price Range</div>
+          <div class="price-value">₹4,80,000 – 7,90,000</div>
+          <div class="tags">
+            <span class="tag tag-ship">Shipping: 6–12 days</span>
+            <span class="tag tag-return"
+              >Returns: If returned within 7 days</span
+            >
+          </div>
+          <div class="cert-line">
+            <span>Certifications: </span>ISO Certified, BIS Certified
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="cta-row">
+          <button class="btn-primary">Get Custom Quote</button>
+          <button class="btn-secondary">
+            View Technical Specs
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
 
     <script src="script.js"></script>
   </body>
