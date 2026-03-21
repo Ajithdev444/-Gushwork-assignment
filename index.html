@@ -10,29 +10,33 @@
   </head>
 
   <body>
-    <!-- Sticky Header -->
-    <header id="sticky-header">
+    <header class="navbar">
       <div class="container">
-        <h1>Logo</h1>
+        <!-- Logo -->
+        <div class="logo">
+          <img src="/public/mangalam_logo.png" alt="Mangalam HDPE Pipes" />
+        </div>
+
+        <!-- Menu -->
+        <nav class="nav-links">
+          <a href="#">About Us</a>
+
+          <div class="dropdown">
+            <button class="dropbtn">
+              Products
+              <span class="arrow">▼</span>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Product 1</a>
+              <a href="#">Product 2</a>
+              <a href="#">Product 3</a>
+            </div>
+          </div>
+
+          <a href="#" class="contact-btn">Contact Us</a>
+        </nav>
       </div>
     </header>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="container nav-content">
-        <h2>Brand</h2>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-      <h1 class="">GushWork</h1>
-    </section>
 
     <script src="script.js"></script>
   </body>
