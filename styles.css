@@ -1405,3 +1405,312 @@ td.spec {
     padding: 64px 100px;
   }
 }
+
+/* ── FAQ ── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Full-width background ── */
+.faq-body {
+  --bg: #f5f6fa;
+  background: var(--bg);
+  width: 100%;
+}
+
+/* ── Content wrapper — max 1240px centred ── */
+.faq-section {
+  --white: #ffffff;
+  --text: #111827;
+  --text-muted: #6b7280;
+  --text-blue: #2d2d8e;
+  --border: #d1d5e8;
+  --border-dashed: #a5b4d8;
+  --icon-bg: #2d2d8e;
+  --icon-color: #ffffff;
+  --input-border: #d1d5db;
+  --btn-bg: #1e3a8a;
+  --btn-hover: #1e40af;
+
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 64px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── FAQ Card ── */
+.faq-card {
+  background: var(--white);
+  border: 1.5px dashed var(--border-dashed);
+  border-radius: 14px;
+  padding: 32px 36px;
+}
+
+/* Heading */
+.faq-title {
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 28px;
+  color: var(--text);
+}
+.faq-title .highlight {
+  color: var(--text-blue);
+}
+
+/* ── Accordion ── */
+.accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--border);
+}
+.accordion-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+
+.accordion-question {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+  flex: 1;
+}
+
+/* Chevron icon button */
+.accordion-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.accordion-item.open .accordion-icon {
+  background: var(--icon-bg);
+  border-color: var(--icon-bg);
+}
+.accordion-icon svg {
+  width: 15px;
+  height: 15px;
+  stroke: var(--text-muted);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  transition:
+    stroke 0.2s,
+    transform 0.3s;
+}
+.accordion-item.open .accordion-icon svg {
+  stroke: var(--icon-color);
+  transform: rotate(180deg);
+}
+
+/* Answer panel */
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.35s ease,
+    padding 0.25s ease;
+}
+.accordion-item.open .accordion-body {
+  max-height: 400px;
+}
+
+.accordion-answer {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.7;
+  padding: 0 4px 18px;
+}
+
+/* ── Catalogue CTA Card ── */
+.catalogue-card {
+  background: var(--white);
+  border: 1.5px dashed var(--border-dashed);
+  border-radius: 14px;
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.catalogue-text {
+}
+.catalogue-title {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.catalogue-sub {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.catalogue-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 260px;
+  flex-shrink: 0;
+}
+
+.catalogue-input {
+  padding: 11px 16px;
+  border: 1.5px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+  background: var(--white);
+}
+.catalogue-input::placeholder {
+  color: #9ca3af;
+}
+.catalogue-input:focus {
+  border-color: var(--btn-bg);
+}
+
+.btn-catalogue {
+  padding: 12px 20px;
+  background: var(--btn-bg);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+  text-align: center;
+}
+.btn-catalogue:hover {
+  background: var(--btn-hover);
+  transform: translateY(-1px);
+}
+.btn-catalogue:active {
+  transform: translateY(0);
+}
+
+/* ── TABLET: ≤ 1024px ── */
+@media (max-width: 1024px) {
+  .faq-section {
+    padding: 52px 40px;
+    gap: 24px;
+  }
+  .faq-card {
+    padding: 28px 28px;
+  }
+  .catalogue-card {
+    padding: 28px 28px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .catalogue-form {
+    width: 100%;
+    min-width: unset;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+  .catalogue-input {
+    flex: 1;
+  }
+  .btn-catalogue {
+    white-space: nowrap;
+  }
+}
+
+/* ── MOBILE: ≤ 767px ── */
+@media (max-width: 767px) {
+  .faq-section {
+    padding: 32px 16px;
+    gap: 18px;
+  }
+  .faq-card {
+    padding: 22px 18px;
+  }
+  .faq-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  .accordion-question {
+    font-size: 13.5px;
+  }
+  .accordion-trigger {
+    padding: 16px 2px;
+  }
+
+  .catalogue-card {
+    padding: 22px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .catalogue-title {
+    font-size: 20px;
+  }
+  .catalogue-form {
+    width: 100%;
+    min-width: unset;
+    flex-direction: column;
+  }
+  .catalogue-input {
+    width: 100%;
+  }
+  .btn-catalogue {
+    width: 100%;
+  }
+}
+
+/* ── Large screens ≥ 1600px ── */
+@media (min-width: 1600px) {
+  .faq-section {
+    padding: 64px 100px;
+  }
+}

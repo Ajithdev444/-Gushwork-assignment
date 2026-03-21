@@ -59,3 +59,24 @@ function nextImg() {
 function prevImg() {
   setImg((current - 1 + images.length) % images.length);
 }
+
+// FAQ
+
+function toggleItem(trigger) {
+  const item = trigger.closest(".accordion-item");
+  const isOpen = item.classList.contains("open");
+  const icon = trigger.querySelector(".accordion-icon svg");
+
+  // Close all open items
+  document.querySelectorAll(".accordion-item.open").forEach((openItem) => {
+    openItem.classList.remove("open");
+    openItem.querySelector(".accordion-icon svg").innerHTML =
+      '<polyline points="6 9 12 15 18 9"/>';
+  });
+
+  // Open clicked item if it was closed
+  if (!isOpen) {
+    item.classList.add("open");
+    icon.innerHTML = '<polyline points="18 15 12 9 6 15"/>';
+  }
+}
