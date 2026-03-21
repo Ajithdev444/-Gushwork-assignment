@@ -1,0 +1,83 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* ========================= */
+/* Sticky Header */
+/* ========================= */
+#sticky-header {
+  position: fixed;
+  top: -80px;
+  left: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  z-index: 1000;
+  transition: top 0.3s ease;
+  padding: 15px 0;
+}
+
+#sticky-header.visible {
+  top: 0;
+}
+
+/* ========================= */
+/* Navbar */
+/* ========================= */
+.navbar {
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.nav-content ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-content a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.nav-content a:hover {
+  color: #007bff;
+}
+
+/* ========================= */
+/* Hero Section */
+/* ========================= */
+.hero {
+  height: 100vh;
+  background: linear-gradient(to right, #f5f5f5, #eaeaea);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+}
