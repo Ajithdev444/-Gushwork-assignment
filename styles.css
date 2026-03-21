@@ -10,6 +10,14 @@ body {
   line-height: 1.5;
 }
 
+:root {
+  --white: #ffffff;
+  --text-muted: #8a8fa3;
+  --border: #c8d0e0;
+  --blue: #007bce;
+  --dark: #1a1a2e;
+  --max-w: 1240px;
+}
 /* Reset */
 * {
   margin: 0;
@@ -725,5 +733,227 @@ body {
   }
   .hero {
     padding: 0 100px 80px;
+  }
+}
+
+/* Trusted companies section */
+
+/* ─── Section Wrapper ─── */
+.trusted-section {
+  width: 100%;
+  background: var(--bg);
+  padding: 32px 0 36px;
+}
+
+.trusted-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 100px;
+}
+
+/* ─── Heading ─── */
+.trusted-heading {
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+  margin-bottom: 24px;
+}
+
+/* ─── Desktop: static grid of 6 logos ─── */
+.logos-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logos-grid .logo-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Tablet/Mobile: scrolling marquee strip inside dashed border ─── */
+.logos-marquee-wrap {
+  display: none;
+  border: 1.5px dashed var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  width: max-content;
+  animation: marquee 18s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track .logo-item {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ─── Logo SVG Component ─── */
+.euroflex-logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  user-select: none;
+}
+
+.euroflex-logo .wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  line-height: 1;
+}
+
+.euroflex-logo .euro {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+  font-style: italic;
+}
+
+/* The 'O' in EUROFLEX gets a blue ring treatment */
+.euroflex-logo .flex-part {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+  font-style: italic;
+  position: relative;
+}
+
+/* Blue circle around the 'O' */
+.euroflex-logo .o-wrap {
+  position: relative;
+  display: inline-block;
+}
+.euroflex-logo .o-wrap .o-letter {
+  font-size: 22px;
+  font-weight: 800;
+  font-style: italic;
+  color: var(--dark);
+}
+.euroflex-logo .o-wrap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid var(--blue);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.euroflex-logo .registered {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--dark);
+  vertical-align: super;
+  line-height: 1;
+  margin-left: 1px;
+  font-style: normal;
+}
+
+.euroflex-logo .tagline {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  color: var(--dark);
+  text-transform: uppercase;
+  opacity: 0.75;
+  padding-left: 1px;
+}
+
+/* Size variants */
+.logo-sm .euro,
+.logo-sm .flex-part,
+.logo-sm .o-wrap .o-letter {
+  font-size: 18px;
+}
+.logo-sm .o-wrap::after {
+  width: 18px;
+  height: 18px;
+  border-width: 2px;
+}
+.logo-sm .tagline {
+  font-size: 7px;
+  letter-spacing: 1.4px;
+}
+
+.logo-md .euro,
+.logo-md .flex-part,
+.logo-md .o-wrap .o-letter {
+  font-size: 22px;
+}
+.logo-md .o-wrap::after {
+  width: 22px;
+  height: 22px;
+}
+
+/* ─── TABLET: ≤ 1024px ─── */
+@media (max-width: 1024px) {
+  .trusted-inner {
+    padding: 0 40px;
+  }
+  .logos-grid {
+    display: none;
+  }
+  .logos-marquee-wrap {
+    display: block;
+  }
+}
+
+/* ─── MOBILE: ≤ 767px ─── */
+@media (max-width: 767px) {
+  .trusted-inner {
+    padding: 0 20px;
+  }
+  .trusted-section {
+    padding: 24px 0 28px;
+  }
+  .trusted-heading {
+    font-size: 12.5px;
+    margin-bottom: 18px;
+  }
+  .logos-grid {
+    display: none;
+  }
+  .logos-marquee-wrap {
+    display: block;
+  }
+  .marquee-track {
+    gap: 36px;
+  }
+}
+
+/* ─── Large screens ─── */
+@media (min-width: 1600px) {
+  .trusted-inner {
+    padding: 0 100px;
   }
 }
