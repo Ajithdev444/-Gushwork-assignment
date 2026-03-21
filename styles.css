@@ -957,3 +957,250 @@ body {
     padding: 0 100px;
   }
 }
+
+/* ── Technical specifications ── */
+
+.spec-body {
+  --bg: #0d1117;
+  background: var(--bg);
+  width: 100%;
+}
+.spec-section {
+  --bg: #0d1117;
+  --card-bg: #161b25;
+  --table-bg: #1a2030;
+  --row-hover: #1f2740;
+  --header-bg: #1f2535;
+  --border: #2a3347;
+  --white: #ffffff;
+  --text: #e2e8f0;
+  --text-muted: #8a95aa;
+  --text-label: #a0aec0;
+  --blue: #4a9eff;
+  --blue-dark: #1d4ed8;
+  --btn-bg: #1e2d4a;
+  --btn-border: #334e7a;
+  --btn-hover: #243560;
+
+  font-family: "Manrope", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 60px 100px;
+}
+
+/* ─── Heading block ─── */
+.spec-header {
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+}
+
+.spec-title {
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.spec-subtitle {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+/* ─── Table Card ─── */
+.spec-card {
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--table-bg);
+  margin-bottom: 24px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead tr {
+  background: var(--header-bg);
+}
+
+thead th {
+  padding: 13px 24px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--text-label);
+  text-align: left;
+  border-bottom: 1.5px solid var(--border);
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+tbody tr:last-child {
+  border-bottom: none;
+}
+tbody tr:hover {
+  background: var(--row-hover);
+}
+
+tbody td {
+  padding: 14px 24px;
+  font-size: 13.5px;
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+td.param {
+  font-weight: 600;
+  color: var(--text);
+  width: 38%;
+}
+
+td.spec {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* India flag emoji + text */
+.flag-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.flag-emoji {
+  font-size: 16px;
+}
+
+/* ─── Download Button ─── */
+.btn-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 28px;
+  background: var(--btn-bg);
+  color: var(--text);
+  border: 1.5px solid var(--btn-border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.15s;
+  text-decoration: none;
+}
+.btn-download:hover {
+  background: var(--btn-hover);
+  border-color: #4a6fa5;
+  transform: translateY(-1px);
+}
+.btn-download:active {
+  transform: translateY(0);
+}
+.btn-download svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--blue);
+  flex-shrink: 0;
+}
+
+/* ─── TABLET: ≤ 1024px ─── */
+@media (max-width: 1024px) {
+  .spec-section {
+    padding: 60px 40px;
+  }
+  td.param {
+    width: 42%;
+  }
+  tbody td {
+    padding: 13px 18px;
+  }
+  thead th {
+    padding: 12px 18px;
+  }
+}
+
+/* ─── MOBILE: ≤ 767px ─── */
+@media (max-width: 767px) {
+  .spec-section {
+    padding: 32px 16px;
+  }
+
+  .spec-header {
+    padding: 18px 16px;
+  }
+  .spec-title {
+    font-size: 22px;
+  }
+  .spec-subtitle {
+    font-size: 13px;
+  }
+
+  /* Stack table rows vertically */
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+  }
+
+  thead tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  thead th {
+    padding: 10px 14px;
+    font-size: 9.5px;
+  }
+
+  tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+    align-items: start;
+  }
+
+  tbody td {
+    padding: 12px 14px;
+    font-size: 12.5px;
+  }
+
+  td.param {
+    width: 100%;
+    border-right: 1px solid var(--border);
+  }
+
+  .btn-download {
+    width: 100%;
+    justify-content: center;
+    font-size: 13.5px;
+    padding: 13px 20px;
+  }
+}
+
+/* ─── Large screens ─── */
+@media (min-width: 1600px) {
+  .spec-section {
+    padding: 60px 100px;
+  }
+}
