@@ -96,177 +96,390 @@
       </div>
     </header>
     <!-- Hero Section -->
-    <section class="hero">
-      <!-- LEFT: Images -->
-      <div class="image-col">
-        <div class="main-image-wrap">
-          <img
-            id="mainImg"
-            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
-            alt="HDPE Pipes installation"
-          />
-          <button
-            class="arrow arrow-left"
-            onclick="prevImg()"
-            aria-label="Previous image"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-          <button
-            class="arrow arrow-right"
-            onclick="nextImg()"
-            aria-label="Next image"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
-        </div>
+    <div class="hero-body">
+      <div class="hero-inner">
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb">
+          <ol class="hero-breadcrumb">
+            <li><a href="#">Products</a></li>
+            <li class="sep" aria-hidden="true">›</li>
+            <li class="active" aria-current="page">Two For One Twister</li>
+          </ol>
+        </nav>
 
-        <div class="thumbnails">
-          <div class="thumb active" onclick="setImg(0, this)">
-            <img
-              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=200&q=60"
-              alt="thumb1"
-            />
+        <!-- Hero Grid -->
+        <div class="hero-grid">
+          <!-- ═══ LEFT: Image ═══ -->
+          <div class="hero-img-col">
+            <!-- Main image with arrows -->
+            <div class="hero-main-wrap">
+              <img
+                id="heroImg"
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+                alt="HDPE pipe installation"
+              />
+              <button
+                class="hero-arrow left"
+                onclick="heroPrev()"
+                aria-label="Previous image"
+              >
+                <svg viewBox="0 0 24 24">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              <button
+                class="hero-arrow right"
+                onclick="heroNext()"
+                aria-label="Next image"
+              >
+                <svg viewBox="0 0 24 24">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Thumbnails -->
+            <div class="hero-thumbs" role="list" aria-label="Product images">
+              <button
+                class="hero-thumb active"
+                onclick="heroSet(0, this)"
+                aria-label="Image 1"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=200&q=60"
+                  alt=""
+                />
+              </button>
+              <button
+                class="hero-thumb"
+                onclick="heroSet(1, this)"
+                aria-label="Image 2"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=200&q=60"
+                  alt=""
+                />
+              </button>
+              <button
+                class="hero-thumb"
+                onclick="heroSet(2, this)"
+                aria-label="Image 3"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=200&q=60"
+                  alt=""
+                />
+              </button>
+              <button
+                class="hero-thumb"
+                onclick="heroSet(3, this)"
+                aria-label="Image 4"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&q=60"
+                  alt=""
+                />
+              </button>
+              <button
+                class="hero-thumb"
+                onclick="heroSet(4, this)"
+                aria-label="Image 5"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=200&q=50"
+                  alt=""
+                />
+              </button>
+            </div>
+
+            <!-- Mobile-only: Price box after image -->
+            <div class="hero-mobile-price">
+              <p class="hero-price-label">Price Range</p>
+              <p class="hero-price-value">₹4,80,000 – 7,90,000</p>
+              <div class="hero-tags">
+                <span class="hero-tag">Shipping: 6–12 days</span>
+                <span class="hero-tag">Returns: If returned within 7 days</span>
+              </div>
+              <p class="hero-cert-line">
+                Certifications: ISO Certified, BIS Certified
+              </p>
+            </div>
+
+            <!-- Mobile-only: CTAs after price -->
+            <div class="hero-mobile-cta">
+              <button class="btn-primary">Get Custom Quote</button>
+              <button class="btn-secondary">
+                View Technical Specs
+                <svg viewBox="0 0 24 24">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
           </div>
-          <div class="thumb" onclick="setImg(1, this)">
-            <img
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&q=60"
-              alt="thumb2"
-            />
+
+          <!-- ═══ RIGHT: Info ═══ -->
+          <div class="hero-info-col">
+            <!-- Cert badges -->
+            <ul class="hero-badges" aria-label="Certifications">
+              <!-- BIS -->
+              <li class="hero-badge">
+                <svg
+                  width="22"
+                  height="15"
+                  viewBox="0 0 30 20"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M14.727 5C14.911 5 15.14 5.092 15.416 5.367L20.794 10.744C21.666 11.618 21.161 12.304 20.014 12.215H14.727L17.898 15.477H24.653C26.722 15.569 28.373 13.639 26.308 11.663L16.888 2.288C16.103 1.506 15.416 1 14.727 1C14.038 1 13.347 1.506 12.567 2.288L3.147 11.663C1.079 13.638 2.733 15.569 4.801 15.476H11.556L14.727 12.214H9.442C8.293 12.306 7.787 11.614 8.662 10.743L14.039 5.367C14.314 5.092 14.545 5 14.728 5"
+                    fill="#2A58A3"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M14.695 8.135C15.081 8.135 15.459 8.249 15.78 8.464C16.102 8.678 16.352 8.983 16.5 9.34C16.648 9.697 16.687 10.09 16.612 10.469C16.537 10.848 16.351 11.196 16.078 11.469C15.805 11.743 15.457 11.929 15.078 12.005C14.699 12.08 14.306 12.042 13.949 11.894C13.592 11.747 13.287 11.496 13.072 11.175C12.857 10.854 12.742 10.476 12.742 10.09C12.742 9.572 12.948 9.076 13.314 8.709C13.68 8.343 14.177 8.137 14.695 8.137"
+                    fill="#E6363B"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M14.706 19H24.586C26.195 18.954 26.609 18.54 27.941 15.921C26.103 17.667 25.69 17.759 24.586 17.759H4.826C3.723 17.759 3.309 17.667 1.471 15.921C2.803 18.54 3.217 18.954 4.826 19H14.706Z"
+                    fill="#2A58A3"
+                  />
+                </svg>
+                BIS Certified
+              </li>
+
+              <!-- ISO -->
+              <li class="hero-badge">
+                <svg
+                  width="18"
+                  height="14"
+                  viewBox="0 0 22 17"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="2"
+                    y="2"
+                    width="18"
+                    height="13"
+                    rx="1.5"
+                    stroke="#1a1a2e"
+                    stroke-width="1.6"
+                  />
+                  <rect
+                    x="6"
+                    y="5"
+                    width="10"
+                    height="7"
+                    rx="0.8"
+                    stroke="#1a1a2e"
+                    stroke-width="1.4"
+                  />
+                  <line
+                    x1="7.5"
+                    y1="2"
+                    x2="7.5"
+                    y2="0.5"
+                    stroke="#1a1a2e"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="11"
+                    y1="2"
+                    x2="11"
+                    y2="0.5"
+                    stroke="#1a1a2e"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="14.5"
+                    y1="2"
+                    x2="14.5"
+                    y2="0.5"
+                    stroke="#1a1a2e"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="7.5"
+                    y1="15"
+                    x2="7.5"
+                    y2="16.5"
+                    stroke="#1a1a2e"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="11"
+                    y1="15"
+                    x2="11"
+                    y2="16.5"
+                    stroke="#1a1a2e"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="14.5"
+                    y1="15"
+                    x2="14.5"
+                    y2="16.5"
+                    stroke="#1a1a2e"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="2"
+                    y1="6.5"
+                    x2="0.5"
+                    y2="6.5"
+                    stroke="#1a1a2e"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="2"
+                    y1="8.5"
+                    x2="0.5"
+                    y2="8.5"
+                    stroke="#1a1a2e"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="2"
+                    y1="10.5"
+                    x2="0.5"
+                    y2="10.5"
+                    stroke="#1a1a2e"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="20"
+                    y1="6.5"
+                    x2="21.5"
+                    y2="6.5"
+                    stroke="#1a1a2e"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="20"
+                    y1="8.5"
+                    x2="21.5"
+                    y2="8.5"
+                    stroke="#1a1a2e"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="20"
+                    y1="10.5"
+                    x2="21.5"
+                    y2="10.5"
+                    stroke="#1a1a2e"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                ISO Certified
+              </li>
+
+              <!-- CE -->
+              <li class="hero-badge">
+                <svg
+                  width="22"
+                  height="15"
+                  viewBox="0 0 600 420"
+                  fill="#111827"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M200,30 C80,30 10,130 10,210 C10,290 80,390 200,390 L200,330 C115,330 70,275 70,210 C70,145 115,90 200,90 Z"
+                  />
+                  <path
+                    d="M330,30 C450,30 520,130 520,210 C520,290 450,390 330,390 L330,330 C415,330 460,275 460,210 L330,210 L330,165 L460,165 C445,110 390,90 330,90 Z"
+                  />
+                </svg>
+                CE Certified
+              </li>
+            </ul>
+
+            <!-- Title -->
+            <h1 class="hero-title">
+              Premium HDPE Pipes &amp; Coils for Modern Infrastructure
+            </h1>
+
+            <!-- Features -->
+            <ul class="hero-features">
+              <li>
+                <span class="feat-icon"
+                  ><svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12" /></svg></span
+                >Leak-Proof Fusion Joints
+              </li>
+              <li>
+                <span class="feat-icon"
+                  ><svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12" /></svg></span
+                >Chemical Resistance
+              </li>
+              <li>
+                <span class="feat-icon"
+                  ><svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12" /></svg></span
+                >50+ Year Service Life
+              </li>
+              <li>
+                <span class="feat-icon"
+                  ><svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12" /></svg></span
+                >Flexible Installation
+              </li>
+              <li>
+                <span class="feat-icon"
+                  ><svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12" /></svg></span
+                >Flexible Installation
+              </li>
+            </ul>
+
+            <!-- Price box (desktop + tablet) -->
+            <div class="hero-price-box">
+              <p class="hero-price-label">Price Range</p>
+              <p class="hero-price-value">₹4,80,000 – 7,90,000</p>
+              <div class="hero-tags">
+                <span class="hero-tag">Shipping: 6–12 days</span>
+                <span class="hero-tag">Returns: If returned within 7 days</span>
+              </div>
+              <p class="hero-cert-line">
+                Certifications: ISO Certified, BIS Certified
+              </p>
+            </div>
+
+            <!-- CTAs (desktop + tablet) -->
+            <div class="hero-cta">
+              <button class="btn-primary">Get Custom Quote</button>
+              <button class="btn-secondary">
+                View Technical Specs
+                <svg viewBox="0 0 24 24">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
           </div>
-          <div class="thumb" onclick="setImg(2, this)">
-            <img
-              src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=200&q=60"
-              alt="thumb3"
-            />
-          </div>
-          <div class="thumb" onclick="setImg(3, this)">
-            <img
-              src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=200&q=60"
-              alt="thumb4"
-            />
-          </div>
-          <div class="thumb" onclick="setImg(4, this)">
-            <img
-              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=200&q=50"
-              alt="thumb5"
-            />
-          </div>
+          <!-- /.hero-info-col -->
         </div>
+        <!-- /.hero-grid -->
       </div>
-
-      <!-- RIGHT: Info -->
-      <div class="info-col">
-        <!-- Certification Badges -->
-        <div class="badges">
-          <div class="badge badge-bis">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M12 2L3 7l9 5 9-5-9-5z" />
-              <path d="M3 17l9 5 9-5" />
-              <path d="M3 12l9 5 9-5" />
-            </svg>
-            BIS Certified
-          </div>
-          <div class="badge badge-iso">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            ISO Certified
-          </div>
-          <div class="badge badge-ce">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            CE Certified
-          </div>
-        </div>
-
-        <!-- Title -->
-        <h1 class="product-title">
-          Premium HDPE Pipes &amp; Coils for Modern Infrastructure
-        </h1>
-
-        <!-- Features -->
-        <ul class="features">
-          <li>Leak-Proof Fusion Joints</li>
-          <li>Chemical Resistance</li>
-          <li>50+ Year Service Life</li>
-          <li>Flexible Installation</li>
-          <li>Flexible Installation</li>
-        </ul>
-
-        <!-- Price Box -->
-        <div class="price-box">
-          <div class="price-label">Price Range</div>
-          <div class="price-value">₹4,80,000 – 7,90,000</div>
-          <div class="tags">
-            <span class="tag tag-ship">Shipping: 6–12 days</span>
-            <span class="tag tag-return"
-              >Returns: If returned within 7 days</span
-            >
-          </div>
-          <div class="cert-line">
-            <span>Certifications: </span>ISO Certified, BIS Certified
-          </div>
-        </div>
-
-        <!-- CTA Buttons -->
-        <div class="cta-row">
-          <button class="btn-primary">Get Custom Quote</button>
-          <button class="btn-secondary">
-            View Technical Specs
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
+      <!-- /.hero-inner -->
+    </div>
 
     <!--  Trusted Companies -->
     <section class="trusted-section">

@@ -356,52 +356,79 @@ body {
 }
 
 /* Hero Section */
+/* ══ PAGE BACKGROUND ══ */
+.hero-body {
+  --bg: #f4f5f7;
+  --white: #ffffff;
+  --text: #111827;
+  --text-muted: #6b7280;
+  --text-light: #9ca3af;
+  --border: #e5e7eb;
+  --navy: #1e3a8a;
+  --navy-hover: #1e40af;
+  --blue-dot: #1e3a8a;
+  --badge-bg: #ffffff;
+  --tag-yellow: #fef9c3;
+  --tag-border: #fcd34d;
+  --tag-text: #92400e;
 
-/* ── Breadcrumb ── */
-.breadcrumb {
-  max-width: var(--max-w);
+  background: var(--bg);
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  width: 100%;
+}
+
+/* ══ INNER WRAPPER ══ */
+.hero-inner {
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 18px 100px;
-  font-size: 13px;
-  color: var(--text-muted);
+  padding: 0 100px 64px;
+}
+
+/* ══ BREADCRUMB ══ */
+.hero-breadcrumb {
   display: flex;
   align-items: center;
   gap: 6px;
+  padding: 20px 0 36px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  list-style: none;
 }
-.breadcrumb a {
+.hero-breadcrumb a {
   color: var(--text-muted);
   text-decoration: none;
 }
-.breadcrumb a:hover {
-  color: var(--navy);
+.hero-breadcrumb a:hover {
+  color: var(--text);
 }
-.breadcrumb span {
-  color: var(--text-main);
+.hero-breadcrumb .sep {
+  color: var(--text-light);
+}
+.hero-breadcrumb .active {
+  color: var(--text);
   font-weight: 600;
 }
-.breadcrumb .sep {
-  color: #9ca3af;
-}
 
-/* ── Hero Section ── */
-.hero {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 0 100px 60px;
+/* ══ TWO-COLUMN GRID ══ */
+.hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
+  gap: 60px;
   align-items: start;
 }
 
-/* ── LEFT: Image Column ── */
-.image-col {
+/* ════════════════════
+       LEFT — IMAGE COLUMN
+    ════════════════════ */
+.hero-img-col {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
-.main-image-wrap {
+.hero-main-wrap {
   position: relative;
   width: 100%;
   aspect-ratio: 4/3;
@@ -409,20 +436,21 @@ body {
   overflow: hidden;
   background: #d1d5db;
 }
-.main-image-wrap img {
+.hero-main-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: opacity 0.18s ease;
 }
 
-/* Carousel arrows */
-.arrow {
+/* Arrows */
+.hero-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.92);
   border: none;
@@ -430,204 +458,205 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
   z-index: 2;
-  transition: background 0.2s;
+  transition: background 0.15s;
 }
-.arrow:hover {
+.hero-arrow:hover {
   background: var(--white);
 }
-.arrow-left {
+.hero-arrow.left {
   left: 14px;
 }
-.arrow-right {
+.hero-arrow.right {
   right: 14px;
 }
-.arrow svg {
+.hero-arrow svg {
   width: 18px;
   height: 18px;
   stroke: #374151;
+  stroke-width: 2.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 /* Thumbnails */
-.thumbnails {
+.hero-thumbs {
   display: flex;
   gap: 10px;
 }
-.thumb {
-  width: 72px;
+.hero-thumb {
+  width: 70px;
   height: 56px;
   border-radius: 8px;
   overflow: hidden;
   border: 2px solid transparent;
   cursor: pointer;
-  flex-shrink: 0;
   background: #e5e7eb;
-  transition: border-color 0.2s;
+  flex-shrink: 0;
+  transition: border-color 0.15s;
 }
-.thumb.active {
-  border-color: var(--blue-btn);
+.hero-thumb.active {
+  border-color: var(--navy);
 }
-.thumb img {
+.hero-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* ── RIGHT: Info Column ── */
-.info-col {
+/* ════════════════════
+       RIGHT — INFO COLUMN
+    ════════════════════ */
+.hero-info-col {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Cert badges */
-.badges {
+/* ── Cert badges ── */
+.hero-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.badge {
+.hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 5px 12px;
+  gap: 5px;
+  padding: 5px 11px;
   border: 1.5px solid var(--border);
   border-radius: 6px;
-  font-size: 12.5px;
+  font-size: 11.5px;
   font-weight: 600;
-  color: var(--text-main);
-  background: var(--white);
+  color: var(--text);
+  background: var(--badge-bg);
+  line-height: 1;
 }
-.badge svg {
-  width: 16px;
-  height: 16px;
+.hero-badge svg {
   flex-shrink: 0;
-}
-.badge-bis svg {
-  color: #f59e0b;
-}
-.badge-iso svg {
-  color: #6366f1;
-}
-.badge-ce svg {
-  color: #374151;
+  display: block;
 }
 
-/* Title */
-.product-title {
-  font-size: clamp(26px, 3vw, 38px);
+/* ── Title ── */
+.hero-title {
+  font-size: clamp(28px, 3.6vw, 46px);
   font-weight: 800;
-  line-height: 1.2;
-  color: var(--navy);
+  color: var(--text);
+  line-height: 1.15;
   letter-spacing: -0.5px;
 }
 
-/* Features */
-.features {
+/* ── Feature list ── */
+.hero-features {
   list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 10px;
 }
-.features li {
+.hero-features li {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14.5px;
-  color: #374151;
+  font-size: 14px;
   font-weight: 500;
+  color: var(--text);
 }
-.features li::before {
-  content: "";
-  width: 9px;
-  height: 9px;
+.feat-icon {
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: var(--blue-tag);
+  background: var(--blue-dot);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feat-icon svg {
+  width: 11px;
+  height: 11px;
+  stroke: #fff;
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-/* Price box */
-.price-box {
+/* ── Price box ── */
+.hero-price-box {
   border: 1.5px solid var(--border);
   border-radius: 12px;
-  padding: 18px 20px;
+  padding: 16px 18px;
   background: var(--white);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
-.price-label {
-  font-size: 12px;
-  color: var(--text-muted);
+.hero-price-label {
+  font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: 0.4px;
+  color: var(--text-muted);
   text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
-.price-value {
-  font-size: 26px;
+.hero-price-value {
+  font-size: 22px;
   font-weight: 800;
-  color: var(--text-main);
-  letter-spacing: -0.5px;
+  color: var(--text);
+  letter-spacing: -0.3px;
 }
-
-.tags {
+.hero-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
-.tag {
-  font-size: 12.5px;
+.hero-tag {
+  font-size: 12px;
   font-weight: 600;
   padding: 5px 12px;
   border-radius: 6px;
+  background: var(--tag-yellow);
+  border: 1.5px solid var(--tag-border);
+  color: var(--tag-text);
 }
-.tag-ship {
-  background: var(--yellow-tag);
-  border: 1.5px solid var(--yellow-border);
-  color: #92400e;
-}
-.tag-return {
-  background: var(--yellow-tag);
-  border: 1.5px solid var(--yellow-border);
-  color: #92400e;
-}
-
-.cert-line {
+.hero-cert-line {
   font-size: 12.5px;
-  color: #374151;
   font-weight: 500;
-}
-.cert-line span {
   color: var(--text-muted);
 }
 
-/* CTAs */
-.cta-row {
+/* ── CTA buttons ── */
+.hero-cta {
   display: flex;
-  flex-wrap: wrap;
   gap: 12px;
+  flex-wrap: wrap;
 }
 .btn-primary {
   flex: 1;
-  min-width: 160px;
-  padding: 14px 24px;
-  background: var(--blue-btn);
-  color: var(--white);
+  min-width: 140px;
+  padding: 14px 22px;
+  background: var(--navy);
+  color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 15px;
+  font-family: inherit;
+  font-size: 14.5px;
   font-weight: 700;
   cursor: pointer;
-  font-family: inherit;
+  text-align: center;
   transition:
     background 0.2s,
     transform 0.15s;
 }
 .btn-primary:hover {
-  background: #1e40af;
+  background: var(--navy-hover);
   transform: translateY(-1px);
 }
 .btn-primary:active {
@@ -636,16 +665,16 @@ body {
 
 .btn-secondary {
   flex: 1;
-  min-width: 160px;
-  padding: 14px 24px;
+  min-width: 140px;
+  padding: 14px 22px;
   background: transparent;
-  color: var(--blue-btn);
-  border: 2px solid var(--blue-btn);
+  color: var(--navy);
+  border: 2px solid var(--navy);
   border-radius: 8px;
-  font-size: 15px;
+  font-family: inherit;
+  font-size: 14.5px;
   font-weight: 700;
   cursor: pointer;
-  font-family: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -664,75 +693,126 @@ body {
 .btn-secondary svg {
   width: 16px;
   height: 16px;
+  stroke: var(--navy);
+  stroke-width: 2.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-/* ── TABLET: 768px–1024px ── */
+/* ════════════════════
+       MOBILE-ONLY BLOCKS
+       (price+CTA after image)
+    ════════════════════ */
+.hero-mobile-price,
+.hero-mobile-cta {
+  display: none;
+}
+
+/* ══════════════════════════════
+       TABLET ≤ 1024px
+       Single column: info top, image bottom
+    ══════════════════════════════ */
 @media (max-width: 1024px) {
-  .breadcrumb {
-    padding: 16px 40px;
-  }
-  .hero {
-    padding: 0 40px 48px;
-    gap: 36px;
-  }
-  .thumb {
-    width: 60px;
-    height: 46px;
-  }
-}
-
-/* ── MOBILE: < 768px ── */
-@media (max-width: 767px) {
-  .breadcrumb {
-    padding: 14px 20px;
-    font-size: 12px;
+  .hero-inner {
+    padding: 0 40px 52px;
   }
 
-  .hero {
+  .hero-grid {
     grid-template-columns: 1fr;
-    padding: 0 20px 40px;
     gap: 24px;
   }
-
-  /* On mobile: info above image (like the screenshot) */
-  .image-col {
+  .hero-img-col {
     order: 2;
   }
-  .info-col {
+  .hero-info-col {
     order: 1;
   }
 
-  .product-title {
-    font-size: 24px;
+  .hero-title {
+    font-size: 30px;
   }
-  .price-value {
-    font-size: 22px;
+  .hero-thumb {
+    width: 62px;
+    height: 50px;
   }
 
-  .btn-primary,
-  .btn-secondary {
+  /* Show cert line in price box on tablet */
+  .hero-cert-line {
+    display: block;
+  }
+}
+
+/* ══════════════════════════════
+       MOBILE ≤ 767px
+       Badges → Title → Features → Image+Thumbs → Price → CTAs
+    ══════════════════════════════ */
+@media (max-width: 767px) {
+  .hero-inner {
+    padding: 0 20px 40px;
+  }
+  .hero-breadcrumb {
+    padding: 16px 0 20px;
+    font-size: 12px;
+  }
+
+  .hero-grid {
+    gap: 16px;
+  }
+
+  .hero-img-col {
+    order: 2;
+  }
+  .hero-info-col {
+    order: 1;
+    gap: 14px;
+  }
+
+  /* Hide desktop price + cta in info col on mobile */
+  .hero-price-box {
+    display: none;
+  }
+  .hero-cta {
+    display: none;
+  }
+
+  /* Show mobile versions after image */
+  .hero-mobile-price {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    background: var(--white);
+    margin-top: 4px;
+  }
+  .hero-mobile-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .hero-mobile-cta .btn-primary,
+  .hero-mobile-cta .btn-secondary {
     flex: unset;
     width: 100%;
-    padding: 13px 20px;
     font-size: 14px;
   }
-  .cta-row {
-    flex-direction: column;
-  }
 
-  .thumb {
+  .hero-title {
+    font-size: 26px;
+  }
+  .hero-thumb {
     width: 56px;
     height: 44px;
   }
 }
 
-/* ── Large screens ── */
+/* ══ Large ≥ 1600px ══ */
 @media (min-width: 1600px) {
-  .breadcrumb {
-    padding: 20px 100px;
-  }
-  .hero {
-    padding: 0 100px 80px;
+  .hero-inner {
+    padding: 0 100px 64px;
   }
 }
 
