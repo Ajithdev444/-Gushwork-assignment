@@ -2545,3 +2545,294 @@ td.spec {
     padding: 8px 100px 16px;
   }
 }
+
+/* ── Solutions Portfolio ── */
+/* ── Full-width background ── */
+.psp-body {
+  --bg: #f4f5f7;
+  background: var(--bg);
+  width: 100%;
+}
+
+/* ── Content wrapper ── */
+.psp-section {
+  --white: #ffffff;
+  --text: #111827;
+  --text-muted: #6b7280;
+  --text-blue: #2563eb;
+  --border: #e5e7eb;
+  --card-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  --card-radius: 14px;
+  --img-radius: 10px;
+  --navy: #1e3a8a;
+  --navy-hover: #1e40af;
+
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 72px 100px;
+}
+
+/* ── Heading ── */
+.psp-heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.psp-title {
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 800;
+  line-height: 1.18;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.psp-subtitle {
+  font-size: 14.5px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ── Cards grid: 3 columns on desktop ── */
+.psp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+  /* Equal height rows so all cards stretch to same height */
+  align-items: stretch;
+}
+
+/* ── Card: vertical layout (title → desc → image → button) ── */
+.psp-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  /* No gap — controlled per element */
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+.psp-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+  transform: translateY(-2px);
+}
+
+.psp-card-title {
+  font-size: 16.5px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.psp-card-desc {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.7;
+  /* flex-grow pushes image + button to bottom */
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+/* Image — always at same level because desc grows */
+.psp-card-img {
+  width: 100%;
+  border-radius: var(--img-radius);
+  overflow: hidden;
+  background: #e5e7eb;
+  aspect-ratio: 4/3;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+.psp-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+.psp-card:hover .psp-card-img img {
+  transform: scale(1.04);
+}
+
+/* Learn More button — always at the very bottom */
+.psp-learn-btn {
+  width: 100%;
+  padding: 11px 20px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-blue);
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    border-color 0.18s;
+  text-align: center;
+  flex-shrink: 0;
+}
+.psp-learn-btn:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+/* ── CTA Banner ── */
+.psp-cta {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.psp-cta-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+.psp-cta-title .highlight {
+  color: var(--text-blue);
+}
+
+.psp-cta-sub {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.psp-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  background: var(--navy);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+  text-decoration: none;
+}
+.psp-cta-btn:hover {
+  background: var(--navy-hover);
+  transform: translateY(-1px);
+}
+.psp-cta-btn:active {
+  transform: translateY(0);
+}
+.psp-cta-btn svg {
+  width: 15px;
+  height: 15px;
+  stroke: #ffffff;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── TABLET: ≤ 1024px ──
+       1 column, cards stay vertical (title → desc → image → button)
+       CTA stays inline row
+    ── */
+@media (max-width: 1024px) {
+  .psp-section {
+    padding: 52px 40px;
+  }
+  .psp-heading {
+    text-align: left;
+    margin-bottom: 32px;
+  }
+  .psp-subtitle {
+    margin: 0;
+  }
+
+  .psp-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .psp-card {
+    padding: 18px 18px 14px;
+  }
+  .psp-card-img {
+    aspect-ratio: 16/9;
+  }
+}
+
+/* ── MOBILE: ≤ 767px ──
+       Same 1-column vertical layout, tighter padding
+       CTA stacks vertically, full-width button
+    ── */
+@media (max-width: 767px) {
+  .psp-section {
+    padding: 36px 16px;
+  }
+  .psp-heading {
+    margin-bottom: 24px;
+  }
+  .psp-title {
+    font-size: 26px;
+  }
+  .psp-subtitle {
+    font-size: 13.5px;
+  }
+
+  .psp-grid {
+    gap: 12px;
+  }
+  .psp-card {
+    padding: 16px 14px 12px;
+  }
+  .psp-card-desc {
+    margin-bottom: 12px;
+  }
+  .psp-card-img {
+    aspect-ratio: 16/9;
+  }
+  .psp-card-title {
+    font-size: 15.5px;
+  }
+
+  /* CTA stacks */
+  .psp-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+  }
+  .psp-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Large ≥ 1600px ── */
+@media (min-width: 1600px) {
+  .psp-section {
+    padding: 72px 100px;
+  }
+}
