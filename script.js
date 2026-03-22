@@ -60,6 +60,43 @@ function prevImg() {
   setImg((current - 1 + images.length) % images.length);
 }
 
+// download full technical data sheet
+(() => {
+  window.openSpecModal = function () {
+    document.getElementById("specModal").classList.add("open");
+    document.body.style.overflow = "hidden";
+    setTimeout(() => document.getElementById("modalEmail").focus(), 100);
+  };
+
+  window.closeSpecModal = function () {
+    document.getElementById("specModal").classList.remove("open");
+    document.body.style.overflow = "";
+  };
+
+  window.handleOverlayClick = function (e) {
+    if (e.target === document.getElementById("specModal")) closeSpecModal();
+  };
+
+  window.checkModalReady = function () {
+    const email = document.getElementById("modalEmail").value.trim();
+    const btn = document.getElementById("modalSubmitBtn");
+    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    btn.classList.toggle("ready", valid);
+  };
+
+  window.submitModal = function () {
+    const email = document.getElementById("modalEmail").value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+    // Add your form submission logic here
+    closeSpecModal();
+  };
+
+  // Close on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeSpecModal();
+  });
+})();
+
 // FAQ
 
 function toggleItem(trigger) {

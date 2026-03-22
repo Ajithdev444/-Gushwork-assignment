@@ -492,7 +492,7 @@
 
     <!-- Technical Specifications -->
     <section class="spec-body">
-      <section class="spec-section">
+      <div class="spec-section">
         <!-- Header -->
         <div class="spec-header">
           <h2 class="spec-title">Technical Specifications at a Glance</h2>
@@ -567,7 +567,7 @@
 
         <!-- Download Button -->
         <div class="btn-wrap">
-          <a href="#" class="btn-download">
+          <button href="#" class="btn-download" onclick="openSpecModal()">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -580,10 +580,73 @@
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
             Download Full Technical Datasheet
-          </a>
+          </button>
         </div>
-      </section>
+      </div>
     </section>
+    <div
+      class="modal-overlay"
+      id="specModal"
+      onclick="handleOverlayClick(event)"
+    >
+      <div class="modal-box">
+        <button
+          class="modal-close"
+          onclick="closeSpecModal()"
+          aria-label="Close"
+        >
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+
+        <div class="modal-title">Let us email the entire catalogue to you</div>
+
+        <div class="modal-field">
+          <label class="modal-label"
+            >Your Email <span class="req">*</span></label
+          >
+          <input
+            class="modal-input"
+            id="modalEmail"
+            type="email"
+            placeholder="example@gmail.com"
+            oninput="checkModalReady()"
+            autocomplete="email"
+          />
+        </div>
+
+        <div class="modal-field">
+          <label class="modal-label"
+            >Your Contact
+            <span style="font-weight: 400; color: #9ca3af"
+              >(Optional)</span
+            ></label
+          >
+          <div class="modal-phone-row">
+            <span class="modal-phone-prefix">+91-</span>
+            <input
+              class="modal-phone-input"
+              id="modalPhone"
+              type="tel"
+              placeholder="0000000000"
+              autocomplete="tel"
+            />
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            class="modal-submit-btn"
+            id="modalSubmitBtn"
+            onclick="submitModal()"
+          >
+            Download Brochure
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- Build to last -->
     <div class="btl-body">
