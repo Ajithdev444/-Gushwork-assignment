@@ -2836,3 +2836,160 @@ td.spec {
     padding: 72px 100px;
   }
 }
+
+/* ── Resources & Downloads ── */
+/* ── Full-width background ── */
+.rd-body {
+  --bg: #f4f5f7;
+  background: var(--bg);
+  width: 100%;
+}
+
+/* ── Content wrapper ── */
+.rd-section {
+  --white: #ffffff;
+  --text: #111827;
+  --text-muted: #6b7280;
+  --text-blue: #1e3a8a;
+  --border: #e5e7eb;
+  --row-hover: #f9fafb;
+  --card-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  --card-radius: 14px;
+
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 72px 100px;
+}
+
+/* ── Heading ── */
+.rd-heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.rd-title {
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 800;
+  line-height: 1.18;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.rd-subtitle {
+  font-size: 14.5px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ── Downloads card ── */
+.rd-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+/* ── Row ── */
+.rd-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+}
+.rd-row:last-child {
+  border-bottom: none;
+}
+.rd-row:hover {
+  background: var(--row-hover);
+}
+
+.rd-row-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* Download link side */
+.rd-download {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-blue);
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.rd-download svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--text-blue);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* ── TABLET: ≤ 1024px ── */
+@media (max-width: 1024px) {
+  .rd-section {
+    padding: 56px 40px;
+  }
+  .rd-heading {
+    margin-bottom: 36px;
+  }
+}
+
+/* ── MOBILE: ≤ 767px ──
+       Row stacks: name on top, Download PDF link below
+    ── */
+@media (max-width: 767px) {
+  .rd-section {
+    padding: 36px 16px;
+  }
+  .rd-heading {
+    margin-bottom: 28px;
+  }
+  .rd-title {
+    font-size: 28px;
+  }
+  .rd-subtitle {
+    font-size: 13.5px;
+  }
+
+  .rd-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px 18px;
+  }
+
+  .rd-row-name {
+    font-size: 14px;
+  }
+  .rd-download {
+    font-size: 13.5px;
+  }
+}
+
+/* ── Large ≥ 1600px ── */
+@media (min-width: 1600px) {
+  .rd-section {
+    padding: 72px 100px;
+  }
+}
