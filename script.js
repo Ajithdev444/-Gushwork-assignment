@@ -97,6 +97,28 @@ function prevImg() {
   });
 })();
 
+// Request a quote form
+(() => {
+  window.btlOpenModal = function () {
+    document.getElementById("btlModal").classList.add("open");
+    document.body.style.overflow = "hidden";
+  };
+  window.btlCloseModal = function () {
+    document.getElementById("btlModal").classList.remove("open");
+    document.body.style.overflow = "";
+  };
+  window.btlOverlayClick = function (e) {
+    if (e.target === document.getElementById("btlModal")) btlCloseModal();
+  };
+  window.btlSubmitModal = function () {
+    // Add your form submission logic here
+    btlCloseModal();
+  };
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") btlCloseModal();
+  });
+})();
+
 // FAQ
 
 function toggleItem(trigger) {

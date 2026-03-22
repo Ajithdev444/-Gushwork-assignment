@@ -783,9 +783,148 @@
 
         <!-- CTA -->
         <div class="btl-cta">
-          <a href="#" class="btn-quote">Request a Quote</a>
+          <button class="btn-quote" onclick="btlOpenModal()">
+            Request a Quote
+          </button>
         </div>
       </section>
+      <!-- ── Request a Call Back Modal ── -->
+      <div
+        class="btl-modal-overlay"
+        id="btlModal"
+        onclick="btlOverlayClick(event)"
+      >
+        <div class="btl-modal-box">
+          <button
+            class="btl-modal-close"
+            onclick="btlCloseModal()"
+            aria-label="Close"
+          >
+            <svg viewBox="0 0 24 24">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+
+          <div class="btl-modal-title">Request a call back</div>
+
+          <div class="btl-modal-field">
+            <input
+              class="btl-modal-input"
+              type="text"
+              placeholder="Full Name"
+              autocomplete="name"
+            />
+          </div>
+          <div class="btl-modal-field">
+            <input
+              class="btl-modal-input"
+              type="text"
+              placeholder="Company Name"
+              autocomplete="organization"
+            />
+          </div>
+          <div class="btl-modal-field">
+            <input
+              class="btl-modal-input"
+              type="email"
+              placeholder="Email Address"
+              autocomplete="email"
+            />
+          </div>
+          <div class="btl-modal-field">
+            <div class="btl-modal-phone-row">
+              <div class="btl-modal-phone-prefix">
+                +91
+                <svg viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </div>
+              <input
+                class="btl-modal-phone-input"
+                type="tel"
+                placeholder="7003026616"
+                autocomplete="tel"
+              />
+            </div>
+          </div>
+
+          <div class="btl-modal-footer">
+            <button class="btl-modal-submit" onclick="btlSubmitModal()">
+              Submit Form
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Request a Call Back Modal ── -->
+    <div
+      class="btl-modal-overlay"
+      id="btlModal"
+      onclick="btlOverlayClick(event)"
+    >
+      <div class="btl-modal-box">
+        <button
+          class="btl-modal-close"
+          onclick="btlCloseModal()"
+          aria-label="Close"
+        >
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+
+        <div class="btl-modal-title">Request a call back</div>
+
+        <div class="btl-modal-field">
+          <input
+            class="btl-modal-input"
+            type="text"
+            placeholder="Full Name"
+            autocomplete="name"
+          />
+        </div>
+        <div class="btl-modal-field">
+          <input
+            class="btl-modal-input"
+            type="text"
+            placeholder="Company Name"
+            autocomplete="organization"
+          />
+        </div>
+        <div class="btl-modal-field">
+          <input
+            class="btl-modal-input"
+            type="email"
+            placeholder="Email Address"
+            autocomplete="email"
+          />
+        </div>
+        <div class="btl-modal-field">
+          <div class="btl-modal-phone-row">
+            <div class="btl-modal-phone-prefix">
+              +91
+              <svg viewBox="0 0 24 24">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <input
+              class="btl-modal-phone-input"
+              type="tel"
+              placeholder="7003026616"
+              autocomplete="tel"
+            />
+          </div>
+        </div>
+
+        <div class="btl-modal-footer">
+          <button class="btl-modal-submit" onclick="btlSubmitModal()">
+            Submit Form
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- FAQ -->
