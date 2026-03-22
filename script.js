@@ -1,32 +1,53 @@
-// Desktop dropdown
-function toggleDropdown(id) {
-  const item = document.getElementById(id);
-  item.classList.toggle("open");
-}
+// Header
+(() => {
+  // Desktop dropdown
+  const desktopItem = document.getElementById("desktopProducts");
+  const desktopBtn = desktopItem.querySelector("button");
 
-// Close desktop dropdown on outside click
-document.addEventListener("click", (e) => {
-  const item = document.getElementById("productsItem");
-  if (!item.contains(e.target)) item.classList.remove("open");
-});
+  window.toggleDesktopDropdown = () => {
+    const isOpen = desktopItem.classList.toggle("open");
+    desktopBtn.setAttribute("aria-expanded", isOpen);
+  };
 
-// Mobile menu
-function toggleMobile() {
-  const menu = document.getElementById("mobileMenu");
-  const burger = document.getElementById("hamburger");
-  menu.classList.toggle("open");
-  burger.classList.toggle("open");
-}
+  // Close desktop dropdown on outside click
+  document.addEventListener("click", (e) => {
+    if (!desktopItem.contains(e.target)) {
+      desktopItem.classList.remove("open");
+      desktopBtn.setAttribute("aria-expanded", "false");
+    }
+  });
 
-// Mobile products dropdown
-function toggleMobDropdown() {
-  const dd = document.getElementById("mobProductsDropdown");
-  const btn = document.getElementById("mobProductsBtn");
-  dd.classList.toggle("open");
-  btn.querySelector(".caret").style.transform = dd.classList.contains("open")
-    ? "rotate(180deg)"
-    : "";
-}
+  // Mobile menu
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  window.toggleMobile = () => {
+    const isOpen = mobileMenu.classList.toggle("open");
+    hamburger.classList.toggle("open", isOpen);
+    hamburger.setAttribute("aria-expanded", isOpen);
+  };
+
+  // Mobile products dropdown
+  const mobBtn = document.getElementById("mobProductsBtn");
+  const mobDd = document.getElementById("mobProductsDropdown");
+
+  window.toggleMobDropdown = () => {
+    const isOpen = mobDd.classList.toggle("open");
+    mobBtn.classList.toggle("open", isOpen);
+    mobBtn.setAttribute("aria-expanded", isOpen);
+  };
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      desktopItem.classList.remove("open");
+      desktopBtn.setAttribute("aria-expanded", "false");
+      mobileMenu.classList.remove("open");
+      hamburger.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
+    }
+  });
+})();
 // Hero section
 (() => {
   const images = [

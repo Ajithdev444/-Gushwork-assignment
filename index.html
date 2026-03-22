@@ -11,77 +11,71 @@
 
   <body>
     <!-- Navbar -->
-
-    <header class="navbar">
+    <header class="nav-body">
       <div class="nav-inner">
         <!-- Logo -->
-        <div class="logo">
-          <img src="/public/mangalam_logo.png" alt="Mangalam HDPE Pipes" />
-        </div>
+        <a href="#" class="nav-logo" aria-label="Mangalam HDPE Pipes home">
+          <div class="nav-logo-brand">Mangalam&#8242;</div>
+          <div class="nav-logo-sub">
+            HDPE
+            <span class="nav-logo-sep" aria-hidden="true"></span>
+            PIPES
+          </div>
+        </a>
 
         <!-- Desktop nav -->
-        <div style="display: flex; align-items: center">
-          <nav class="nav-links" id="desktopNav">
-            <div class="nav-item">
-              <a href="#" class="nav-link">About Us</a>
-            </div>
+        <nav aria-label="Main navigation">
+          <div class="nav-links">
+            <a href="#" class="nav-link">About Us</a>
 
-            <div class="nav-item" id="productsItem">
-              <button class="nav-link" onclick="toggleDropdown('productsItem')">
+            <div class="nav-item" id="desktopProducts">
+              <button
+                class="nav-link"
+                onclick="toggleDesktopDropdown()"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
                 Products
-                <svg
-                  class="caret"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
               </button>
-              <div class="dropdown" id="productsDropdown">
-                <a href="#">HDPE Pipes</a>
-                <a href="#">HDPE Coils</a>
-                <a href="#">Two For One Twister</a>
-                <a href="#">Fittings &amp; Accessories</a>
+              <div class="nav-dropdown" role="menu">
+                <a href="#" role="menuitem">HDPE Pipes</a>
+                <a href="#" role="menuitem">HDPE Coils</a>
+                <a href="#" role="menuitem">Two For One Twister</a>
+                <a href="#" role="menuitem">Fittings &amp; Accessories</a>
               </div>
             </div>
-          </nav>
 
-          <button class="btn-contact">Contact Us</button>
-        </div>
+            <button class="btn-contact">Contact Us</button>
+          </div>
+        </nav>
 
-        <!-- Hamburger -->
+        <!-- Hamburger (mobile) -->
         <button
-          class="hamburger"
+          class="nav-hamburger"
           id="hamburger"
           onclick="toggleMobile()"
-          aria-label="Toggle menu"
+          aria-label="Toggle mobile menu"
+          aria-expanded="false"
         >
           <span></span><span></span><span></span>
         </button>
       </div>
 
       <!-- Mobile menu -->
-      <div class="mobile-menu" id="mobileMenu">
+      <nav class="nav-mobile" id="mobileMenu" aria-label="Mobile navigation">
         <a href="#" class="mob-link">About Us</a>
 
         <button
           class="mob-link"
-          onclick="toggleMobDropdown()"
           id="mobProductsBtn"
+          onclick="toggleMobDropdown()"
+          aria-expanded="false"
         >
           Products
-          <svg
-            class="caret"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            style="width: 16px; height: 16px"
-          >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
             <polyline points="6 9 12 15 18 9" />
           </svg>
         </button>
@@ -93,8 +87,9 @@
         </div>
 
         <button class="mob-contact">Contact Us</button>
-      </div>
+      </nav>
     </header>
+
     <!-- Hero Section -->
     <div class="hero-body">
       <div class="hero-inner">
