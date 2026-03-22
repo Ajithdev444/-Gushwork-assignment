@@ -578,7 +578,7 @@ body {
 /* ── Title ── */
 .hero-title {
   font-size: clamp(28px, 3.6vw, 46px);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--text);
   line-height: 1.15;
   letter-spacing: -0.5px;
