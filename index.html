@@ -863,6 +863,305 @@
       </div>
     </div>
 
+    <!-- Across Industries -->
+    <div class="vai-body">
+      <div class="vai-section" id="vaiSection">
+        <!-- Header -->
+        <div class="vai-header">
+          <div class="vai-header-text">
+            <h2 class="vai-title">Versatile Applications Across Industries</h2>
+            <p class="vai-subtitle">
+              From technical textiles to packaging materials, our
+              precision-engineered machinery delivers superior performance
+              across diverse applications.
+            </p>
+          </div>
+          <div class="vai-arrows">
+            <button
+              class="arrow-btn"
+              id="prevBtn"
+              onclick="slide(-1)"
+              aria-label="Previous"
+            >
+              <svg viewBox="0 0 24 24">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+            <button
+              class="arrow-btn"
+              id="nextBtn"
+              onclick="slide(1)"
+              aria-label="Next"
+            >
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slider -->
+        <div class="vai-slider-outer">
+          <div class="vai-track" id="vaiTrack">
+            <div class="vai-card">
+              <img
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80"
+                alt="Fishnet Manufacturing"
+              />
+              <div class="vai-card-overlay"></div>
+              <div class="vai-card-content">
+                <div class="vai-card-title">Fishnet Manufacturing</div>
+                <div class="vai-card-desc">
+                  High-performance twisting solutions for packaging yarn,
+                  strapping materials, and reinforcement threads used in modern
+                  packaging applications.
+                </div>
+              </div>
+            </div>
+
+            <div class="vai-card">
+              <img
+                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80"
+                alt="Pipe Extrusion"
+              />
+              <div class="vai-card-overlay"></div>
+              <div class="vai-card-content">
+                <div class="vai-card-title">Fishnet Manufacturing</div>
+                <div class="vai-card-desc">
+                  High-performance twisting solutions for packaging yarn,
+                  strapping materials, and reinforcement threads used in modern
+                  packaging applications.
+                </div>
+              </div>
+            </div>
+
+            <div class="vai-card">
+              <img
+                src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600&q=80"
+                alt="Infrastructure"
+              />
+              <div class="vai-card-overlay"></div>
+              <div class="vai-card-content">
+                <div class="vai-card-title">Fishnet Manufacturing</div>
+                <div class="vai-card-desc">
+                  High-performance twisting solutions for packaging yarn,
+                  strapping materials, and reinforcement threads used in modern
+                  packaging applications.
+                </div>
+              </div>
+            </div>
+
+            <div class="vai-card">
+              <img
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+                alt="Industrial"
+              />
+              <div class="vai-card-overlay"></div>
+              <div class="vai-card-content">
+                <div class="vai-card-title">Fishnet Manufacturing</div>
+                <div class="vai-card-desc">
+                  High-performance twisting solutions for packaging yarn,
+                  strapping materials, and reinforcement threads used in modern
+                  packaging applications.
+                </div>
+              </div>
+            </div>
+
+            <div class="vai-card">
+              <img
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=65"
+                alt="Cable Manufacturing"
+              />
+              <div class="vai-card-overlay"></div>
+              <div class="vai-card-content">
+                <div class="vai-card-title">Cable Manufacturing</div>
+                <div class="vai-card-desc">
+                  High-performance twisting solutions for packaging yarn,
+                  strapping materials, and reinforcement threads used in modern
+                  packaging applications.
+                </div>
+              </div>
+            </div>
+
+            <div class="vai-card">
+              <img
+                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=65"
+                alt="Water Supply"
+              />
+              <div class="vai-card-overlay"></div>
+              <div class="vai-card-content">
+                <div class="vai-card-title">Water Supply Systems</div>
+                <div class="vai-card-desc">
+                  High-performance twisting solutions for packaging yarn,
+                  strapping materials, and reinforcement threads used in modern
+                  packaging applications.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manufacturing  process-->
+    <div class="mfg-body">
+      <div class="mfg-section">
+        <!-- Heading -->
+        <div class="mfg-heading">
+          <h2 class="mfg-title">Advanced HDPE Pipe Manufacturing Process</h2>
+          <p class="mfg-subtitle">
+            Our state-of-the-art extrusion technology ensures consistent
+            quality, optimal material properties, and dimensional accuracy in
+            every pipe we manufacture.
+          </p>
+        </div>
+
+        <!-- Card -->
+        <div class="mfg-card">
+          <!-- Desktop tab bar -->
+          <div class="mfg-tabs" id="mfgTabs">
+            <div class="mfg-tab">
+              <button class="mfg-tab-btn active" onclick="goToStep(0)">
+                Raw Material
+              </button>
+            </div>
+            <div class="mfg-tab-arrow">
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </div>
+            <div class="mfg-tab">
+              <button class="mfg-tab-btn" onclick="goToStep(1)">
+                Extrusion
+              </button>
+            </div>
+            <div class="mfg-tab-arrow">
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </div>
+            <div class="mfg-tab">
+              <button class="mfg-tab-btn" onclick="goToStep(2)">Cooling</button>
+            </div>
+            <div class="mfg-tab-arrow">
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </div>
+            <div class="mfg-tab">
+              <button class="mfg-tab-btn" onclick="goToStep(3)">Sizing</button>
+            </div>
+            <div class="mfg-tab-arrow">
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </div>
+            <div class="mfg-tab">
+              <button class="mfg-tab-btn" onclick="goToStep(4)">
+                Quality Control
+              </button>
+            </div>
+            <div class="mfg-tab-arrow">
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </div>
+            <div class="mfg-tab">
+              <button class="mfg-tab-btn" onclick="goToStep(5)">Marking</button>
+            </div>
+            <div class="mfg-tab-arrow">
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </div>
+            <div class="mfg-tab">
+              <button class="mfg-tab-btn" onclick="goToStep(6)">Cutting</button>
+            </div>
+            <div class="mfg-tab-arrow">
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </div>
+            <div class="mfg-tab">
+              <button class="mfg-tab-btn" onclick="goToStep(7)">
+                Packaging
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile/tablet step badge -->
+          <div class="mfg-step-badge">
+            <span id="stepBadge">Step 1/8: Raw Material</span>
+          </div>
+
+          <!-- Step content -->
+          <div class="mfg-content">
+            <!-- Left: text -->
+            <div class="mfg-text">
+              <div class="mfg-step-title" id="stepTitle">
+                High-Grade Raw Material Selection
+              </div>
+              <div class="mfg-step-desc" id="stepDesc">
+                Vacuum sizing tanks ensure precise outer diameter while internal
+                pressure maintains perfect roundness and wall thickness
+                uniformity.
+              </div>
+              <ul class="mfg-bullets" id="stepBullets">
+                <li>PE100 grade material</li>
+                <li>Optimal molecular weight distribution</li>
+              </ul>
+            </div>
+
+            <!-- Right: image -->
+            <div class="mfg-image">
+              <div class="mfg-image-inner">
+                <img
+                  id="stepImg"
+                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+                  alt="Manufacturing step"
+                />
+                <button
+                  class="img-arrow left"
+                  onclick="prevImg()"
+                  aria-label="Previous image"
+                >
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
+                </button>
+                <button
+                  class="img-arrow right"
+                  onclick="nextImg()"
+                  aria-label="Next image"
+                >
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tablet/mobile bottom nav -->
+          <div class="mfg-bottom-nav">
+            <button class="nav-btn" id="prevStepBtn" onclick="prevStep()">
+              <svg viewBox="0 0 24 24">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+              Previous
+            </button>
+            <button class="nav-btn" id="nextStepBtn" onclick="nextStep()">
+              Next
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <!-- /.mfg-card -->
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
