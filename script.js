@@ -326,3 +326,131 @@ document.getElementById("stepImg").style.transition = "opacity 0.14s ease";
 
 // Init
 renderStep();
+
+// proven Results
+
+(() => {
+  let tprOffset = 0;
+  let tprIsDown = false;
+  let tprStartX = 0;
+  let tprScrollLeft = 0;
+
+  const tprTrack = document.getElementById("tprTrack");
+  const tprSection = document.getElementById("tprSection");
+
+  /* ── Calculate card width dynamically ── */
+  function tprGetConfig() {
+    const w = window.innerWidth;
+    let visible, gap, padding;
+    if (w <= 767) {
+      visible = 1.15;
+      gap = 14;
+      padding = 20;
+    } else if (w <= 1024) {
+      visible = 2.15;
+      gap = 16;
+      padding = 40;
+    } else {
+      visible = 3.85;
+      gap = 20;
+      padding = 100;
+    }
+    return { visible, gap, padding };
+  }
+
+  function tprSetCardWidths() {
+    const { visible, gap, padding } = tprGetConfig();
+    const sectionW = tprSection.offsetWidth;
+    const cardW =
+      (sectionW - 2 * padding - Math.floor(visible) * gap) / visible;
+    document.querySelectorAll(".tpr-card").forEach((c) => {
+      c.style.flex = `0 0 ${cardW}px`;
+    });
+    return { cardW, gap, padding };
+  }
+
+  function tprGetCards() {
+    return document.querySelectorAll(".tpr-card");
+  }
+
+  function tprGetMaxOffset() {
+    const { cardW, gap } = tprSetCardWidths();
+    const total = tprGetCards().length;
+    const { visible } = tprGetConfig();
+    return Math.max(0, (total - Math.floor(visible)) * (cardW + gap));
+  }
+
+  function tprApplyOffset(val) {
+    tprOffset = Math.max(0, Math.min(val, tprGetMaxOffset()));
+    tprTrack.style.transform = `translateX(-${tprOffset}px)`;
+    tprTrack.style.transition = "transform 0.35s cubic-bezier(0.4,0,0.2,1)";
+  }
+
+  /* Mouse drag */
+  tprTrack.addEventListener("mousedown", (e) => {
+    tprIsDown = true;
+    tprStartX = e.pageX;
+    tprScrollLeft = tprOffset;
+    tprTrack.style.cursor = "grabbing";
+    tprTrack.style.transition = "none";
+  });
+  document.addEventListener("mouseup", () => {
+    if (!tprIsDown) return;
+    tprIsDown = false;
+    tprTrack.style.cursor = "";
+    tprSnapToCard();
+  });
+  document.addEventListener("mousemove", (e) => {
+    if (!tprIsDown) return;
+    const dx = e.pageX - tprStartX;
+    tprOffset = tprScrollLeft - dx;
+    tprOffset = Math.max(0, Math.min(tprOffset, tprGetMaxOffset()));
+    tprTrack.style.transform = `translateX(-${tprOffset}px)`;
+  });
+
+  /* Touch drag */
+  tprTrack.addEventListener(
+    "touchstart",
+    (e) => {
+      tprStartX = e.touches[0].pageX;
+      tprScrollLeft = tprOffset;
+      tprTrack.style.transition = "none";
+    },
+    { passive: true },
+  );
+  tprTrack.addEventListener(
+    "touchmove",
+    (e) => {
+      const dx = e.touches[0].pageX - tprStartX;
+      tprOffset = tprScrollLeft - dx;
+      tprOffset = Math.max(0, Math.min(tprOffset, tprGetMaxOffset()));
+      tprTrack.style.transform = `translateX(-${tprOffset}px)`;
+    },
+    { passive: true },
+  );
+  tprTrack.addEventListener("touchend", tprSnapToCard);
+
+  function tprSnapToCard() {
+    const { cardW, gap } = tprSetCardWidths();
+    const step = cardW + gap;
+    const nearest = Math.round(tprOffset / step) * step;
+    tprApplyOffset(nearest);
+  }
+
+  /* Resize */
+  let tprResizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(tprResizeTimer);
+    tprResizeTimer = setTimeout(() => {
+      tprOffset = 0;
+      tprSetCardWidths();
+      tprTrack.style.transform = "translateX(0)";
+    }, 120);
+  });
+
+  /* Init */
+  window.addEventListener("load", () => {
+    tprSetCardWidths();
+  });
+  tprSetCardWidths();
+})();
